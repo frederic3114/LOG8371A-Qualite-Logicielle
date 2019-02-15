@@ -60,6 +60,8 @@ public class AllTests extends TestSuite {
     // suite.addTest(weka.experiment.AllTests.suite());
     // suite.addTest(weka.gui.AllTests.suite());
 
+    suite.addTest(AdditionHelperTest.suite());
+
     return suite;
   }
 
