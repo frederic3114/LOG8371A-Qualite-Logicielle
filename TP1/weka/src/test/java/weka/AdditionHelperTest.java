@@ -26,10 +26,6 @@ public class AdditionHelperTest extends TestCase {
     assertEquals(AdditionHelper.Add(-1, -1), -2);
   }
 
-  public void testFail() {
-    assertEquals(AdditionHelper.Add(1, 1), 0);
-  }
-
   public static Test suite() {
     return new TestSuite(AdditionHelperTest.class);
   }
