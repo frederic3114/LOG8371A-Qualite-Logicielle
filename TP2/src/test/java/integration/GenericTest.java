@@ -1,5 +1,6 @@
 package integration;
 
+import com.beust.jcommander.Parameter;
 import com.google.gson.Gson;
 import helper.TestHelper;
 import io.swagger.api.data.ModelService;
@@ -17,7 +18,11 @@ import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class GenericTest {
 
@@ -166,5 +171,21 @@ public class GenericTest {
     }
 
 
+    @Test(description = "Test custom algorithm integration")
+    @Parameters({"host"})
+    public void customAlgorithmTest(@Optional String host) throws Exception {
+        String uri = host + "/custom/custom";
 
+        Client client = TestHelper.getClient();
+        Response response = client.target(uri).request(MediaType.TEXT_PLAIN).get();
+
+        // Requires Java8
+        List<Integer> expectedList = IntStream.rangeClosed(1, 10000).boxed().collect(Collectors.toList());
+
+        Assert.assertEquals(response.getStatus(), 200);
+        Assert.assertTrue(response.getMediaType().toString().equals(MediaType.TEXT_PLAIN));
+
+        String realList = response.readEntity(String.class).toString();
+        Assert.assertEquals(realList, expectedList.toString());
+    }
 }
