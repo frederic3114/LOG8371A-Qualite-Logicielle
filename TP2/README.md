@@ -27,27 +27,19 @@ sudo apt install maven
 mvn clean package
 ```
 
-6. Install Docker & create user group to avoid having to use Sudo
+6. Install docker-compose
 ```shell
-sudo snap install docker;
-sudo groupadd docker;
-sudo usermod -aG docker $USER;
+sudo apt install docker-compose
 ```
 
-7. Install & run Mongo
+7. Build the container image
 ```shell
-docker pull mongo;
-docker run --name mongodb -d mongo;
+docker build -t jguweka/jguweka:OAS3 .
 ```
 
-8. Build Docker
+8. Run docker-compose
 ```shell
-docker build -t dizco/jguweka:OAS3 .
+sudo docker-compose up
 ```
 
-9. Run Docker container
-```shell
-docker run -p 8080:8080 --link mongodb:mongodb dizco/jguweka:OAS3
-```
-
-Using Postman, trigger a request
+Using Postman or Swagger, trigger a request
