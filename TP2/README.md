@@ -73,18 +73,18 @@ wget http://muug.ca/mirror/apache-dist//jmeter/binaries/apache-jmeter-5.1.1.zip
 unzip apache-jmeter-5.1.1.zip
 ```
 
-2. Launch JMeter GUI
+2. Launch JMeter GUI (optional)
 ```shell
 cd apache-jmeter-5.1.1/bin/
 ./jmeter
 ```
 
-3. Create a new test plan
+3. Create a new test plan (optional)
 ```
 A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-performance-testing.html
 ```
 
-4. Run the test plan
+4. Run the pre-existing test plans
 ```shell
 ./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/lt_{bayes | custom}_{low | medium | high | very_high}.jmx
 ```
