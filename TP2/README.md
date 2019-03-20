@@ -66,7 +66,7 @@ A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-
 
 4. Run the test plan
 ```shell
-./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/Load\ Testing\ {Low | Medium | High | Very\ High}.jmx
+./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/lt_{bayes | custom}_{low | medium | high | very_high}.jmx
 ```
 The provided plans assume that you are running Docker locally and that it can be accessed through localhost:8081
 - Low         : 1    threads (users) on 10   loops

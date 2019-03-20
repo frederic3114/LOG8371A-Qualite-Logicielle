@@ -44,68 +44,60 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="datasetUri" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">https://pkgstore.datahub.io/machine-learning/gina_prior2/gina_prior2_arff/archive/62e71a57b04e57b071eb177204e9c593/gina_prior2_arff.arff</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="HTTPArgument.content_type">text/x-arff</stringProp>
                 <stringProp name="Argument.name">datasetUri</stringProp>
               </elementProp>
               <elementProp name="estimator" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">SimpleEstimator</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
                 <stringProp name="Argument.name">estimator</stringProp>
               </elementProp>
               <elementProp name="estimatorParams" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">0.5</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">estimatorParams</stringProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
               </elementProp>
               <elementProp name="useADTree" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">0</stringProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value"></stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
                 <stringProp name="Argument.name">useADTree</stringProp>
               </elementProp>
               <elementProp name="searchAlgorithm" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">local.K2</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">searchAlgorithm</stringProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
               </elementProp>
               <elementProp name="searchParams" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">-P 1 -S BAYES</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">searchParams</stringProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
               </elementProp>
               <elementProp name="validation" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">CrossValidation</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">validation</stringProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
               </elementProp>
               <elementProp name="validationNum" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">10</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">validationNum</stringProp>
-                <stringProp name="HTTPArgument.content_type"></stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
@@ -119,7 +111,10 @@
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.proxyHost">curl -X POST &quot;http://localhost:8081/algorithm/BayesNet&quot; -H  &quot;accept: text/uri-list&quot; -H  &quot;Content-Type: multipart/form-data&quot; -F &quot;datasetUri=https://datahub.io/machine-learning/gina_prior2/r/gina_prior2_arff.arff&quot; -F &quot;estimator=SimpleEstimator&quot; -F &quot;estimatorParams=0.5&quot; -F &quot;useADTree=&quot; -F &quot;searchAlgorithm=local.K2&quot; -F &quot;searchParams=-P 1 -S BAYES&quot; -F &quot;validation=CrossValidation&quot; -F &quot;validationNum=10&quot;</stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
