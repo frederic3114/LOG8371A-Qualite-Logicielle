@@ -1,0 +1,22 @@
+TP2 Q3 Weka Profiling
+
+JProfiler
+-Connecter JProfile à la JVM qui s'exécute dans Docker, informations et étapes sur le lien suivant. 
+J'ai bel et bien utilisé la version 9.2 de JProfiler, meme si ce n'est pas la plus récente.
+
+http://geekspearls.blogspot.com/2016/08/configure-jprofiler-92-to-profiling.html
+
+docker build -t dizco/jguweka:OAS3 .
+
+docker run -p 8849:8849 -p 8080:8080 --link mongodb:mongodb dizco/jguweka:OAS3
+
+on envoie des requetes sur l'api une fois connecté sur le port avec jprofiler 
+
+
+Scénario 1: Charge réduite
+
+Scénario 2: Charge moyenne
+
+Scénario 3: Charge augmentée
+
+Scénario 4: Charge exceptionnelle
