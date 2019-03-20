@@ -69,7 +69,7 @@ A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-
 ./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/Load\ Testing\ {Low | Medium | High | Very\ High}.jmx
 ```
 The provided plans assume that you are running Docker locally and that it can be accessed through localhost:8081
-- Low         : 10   threads (users) on 100  loops
+- Low         : 1    threads (users) on 10   loops
 - Medium      : 10   threads (users) on 100  loops
 - High        : 100  threads (users) on 1000 loops
 - Very High   : 1000 threads (users) on 1000 loops
