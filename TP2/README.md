@@ -27,27 +27,49 @@ sudo apt install maven
 mvn clean package
 ```
 
-6. Install Docker & create user group to avoid having to use Sudo
+6. Install docker-compose
 ```shell
-sudo snap install docker;
-sudo groupadd docker;
-sudo usermod -aG docker $USER;
+sudo apt install docker-compose
 ```
 
-7. Install & run Mongo
+7. Build the container image
 ```shell
-docker pull mongo;
-docker run --name mongodb -d mongo;
+sudo docker build -t jguweka/jguweka:OAS3 .
 ```
 
-8. Build Docker
+8. Run docker-compose
 ```shell
-docker build -t dizco/jguweka:OAS3 .
+sudo docker-compose up
 ```
 
-9. Run Docker container
+Using Postman or Swagger, trigger a request
+
+
+## Setting up load testing with JMeter
+
+1. Download and extract JMeter
 ```shell
-docker run -p 8080:8080 --link mongodb:mongodb dizco/jguweka:OAS3
+wget http://muug.ca/mirror/apache-dist//jmeter/binaries/apache-jmeter-5.1.1.zip
+unzip apache-jmeter-5.1.1.zip
 ```
 
-Using Postman, trigger a request
+2. Launch JMeter GUI
+```shell
+cd apache-jmeter-5.1.1/bin/
+./jmeter
+```
+
+3. Create a new test plan
+```
+A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-performance-testing.html
+```
+
+4. Run the test plan
+```shell
+./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/lt_{bayes | custom}_{low | medium | high | very_high}.jmx
+```
+The provided plans assume that you are running Docker locally and that it can be accessed through localhost:8081
+- Low         : 1    threads (users) on 10   loops
+- Medium      : 10   threads (users) on 100  loops
+- High        : 100  threads (users) on 1000 loops
+- Very High   : 1000 threads (users) on 1000 loops
