@@ -44,6 +44,26 @@ sudo docker-compose up
 
 Using Postman or Swagger, trigger a request
 
+## Setting up JProfiler 
+
+1. Download and install JProfiler GIU from the following link: 
+```shell
+https://www.ej-technologies.com/download/jprofiler/files
+```
+
+2. Launch JProfiler and activate the trial version.
+
+3. To start profiling with JProfiler, start a new session with the following steps
+```shell
+Session -> New Session -> Name your session 
+Select the Attach option -> Attach to remote JVM
+Enter the IP Adress of the running Docker Container that you are profiling.
+Leave the Profiling port as default, 8849 -> Leave other settings as default -> click OK
+Evaluate -> Leave settings as default -> Ok
+The profiling should be running just fine.
+```
+
+
 
 ## Setting up load testing with JMeter
 
