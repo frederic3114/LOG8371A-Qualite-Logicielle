@@ -64,7 +64,7 @@ cd apache-jmeter-5.1.1/bin/
 A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-performance-testing.html
 ```
 
-4. Run the test plan
+4. Run the pre-existing test plans
 ```shell
 ./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/lt_{bayes | custom}_{low | medium | high | very_high}.jmx
 ```
