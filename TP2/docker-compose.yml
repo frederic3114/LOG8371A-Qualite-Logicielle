@@ -8,10 +8,13 @@ services:
     image: jguweka/jguweka:OAS3
     container_name: jguwekarest
     restart: always
+    environment:
+      CATALINA_OPTS: '-agentpath:/usr/local/jprofiler11.0/bin/linux-x64/libjprofilerti.so=port=8849'
     links:
       - "mongo:mongodb"
     ports:
       - "8081:8080"
+      - "8849:8849"
     depends_on:
       - mongo
     labels:

@@ -34,7 +34,7 @@ sudo apt install docker-compose
 
 7. Build the container image
 ```shell
-docker build -t jguweka/jguweka:OAS3 .
+sudo docker build -t jguweka/jguweka:OAS3 .
 ```
 
 8. Run docker-compose
@@ -43,3 +43,33 @@ sudo docker-compose up
 ```
 
 Using Postman or Swagger, trigger a request
+
+
+## Setting up load testing with JMeter
+
+1. Download and extract JMeter
+```shell
+wget http://muug.ca/mirror/apache-dist//jmeter/binaries/apache-jmeter-5.1.1.zip
+unzip apache-jmeter-5.1.1.zip
+```
+
+2. Launch JMeter GUI
+```shell
+cd apache-jmeter-5.1.1/bin/
+./jmeter
+```
+
+3. Create a new test plan
+```
+A tutorial on creating the test plan can be found https://www.guru99.com/jmeter-performance-testing.html
+```
+
+4. Run the test plan
+```shell
+./jmeter -n -t PATH_TO_REPO/TP2/jmeter_tests/Load\ Testing\ {Low | Medium | High | Very High}.jmx
+```
+The provided plans assume that you are running Docker locally and that it can be accessed through localhost:8081
+Low         : 10   threads (users) on 100  loops
+Medium      : 10   threads (users) on 100  loops
+High        : 100  threads (users) on 1000 loops
+Very High   : 1000 threads (users) on 1000 loops
