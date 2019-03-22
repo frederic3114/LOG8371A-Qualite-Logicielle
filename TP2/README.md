@@ -44,6 +44,8 @@ sudo docker-compose up
 
 Using Postman or Swagger, trigger a request
 
+REST API can be accessed through port 8081 on any hostname associated with the machine running Docker (localhost, 127.0.0.1, etc)
+
 ## Setting up JProfiler 
 
 1. Download and install JProfiler GIU from the following link: 

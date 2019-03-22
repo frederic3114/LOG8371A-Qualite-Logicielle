@@ -26,7 +26,7 @@ RUN wget http://download-keycdn.ej-technologies.com/jprofiler/jprofiler_linux_11
  tar -xzf /tmp/jprofiler_linux_11_0.tar.gz -C /usr/local &&\
  rm /tmp/jprofiler_linux_11_0.tar.gz
 
-ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler9/bin/linux-x64/libjprofilerti.so=nowait"
+ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler11.0/bin/linux-x64/libjprofilerti.so=nowait"
 EXPOSE 8849
 
 # run as that user
