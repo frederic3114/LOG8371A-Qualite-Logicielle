@@ -95,3 +95,22 @@ The provided plans assume that you are running Docker locally and that it can be
 - Medium      : 10   threads (users) on 100  loops
 - High        : 100  threads (users) on 1000 loops
 - Very High   : 1000 threads (users) on 1000 loops
+
+
+## Scale
+1. Build the container image
+```shell
+sudo docker build -t jguweka/jguweka:OAS3 .
+```
+
+2. Run docker-compose
+```shell
+sudo docker-compose up --scale jguweka=2
+```
+
+3. Open a new terminal and run
+```shell
+docker stats
+```
+
+4. Use Postman to trigger requests. The API is now available on `http://localhost:80`
